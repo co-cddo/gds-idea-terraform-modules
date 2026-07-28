@@ -1,0 +1,30 @@
+repos:
+- repo: https://github.com/Yelp/detect-secrets
+  rev: v1.5.0
+  hooks:
+    - id: detect-secrets
+      name: 'detect-secrets'
+      args: ['--exclude-files', '.*\.ipynb$', ]
+    - id: detect-secrets
+      name: 'detect-secrets-jupyter'
+      args: ['--exclude-files', '.*[^i][^p][^y][^n][^b]$', '--exclude-lines', '"(hash|id|image/\w+)":.*', ]
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.106.0
+  hooks:
+    - id: terraform_fmt
+    - id: terraform_validate
+- repo: https://github.com/terraform-docs/terraform-docs
+  rev: v0.24.0
+  hooks:
+    - id: terraform-docs-go
+      args: ["markdown", "table", "--recursive", "--output-file", "README.md", "."]
+- repo: https://github.com/bridgecrewio/checkov.git
+  rev: 3.3.1
+  hooks:
+    - id: checkov
+      args: [--quiet, --compact, --skip-check, CKV_AWS_21, --skip-check, CKV_AWS_144]

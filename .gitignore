@@ -1,0 +1,34 @@
+# mac stuff
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# python compilation files
+__pycache__/
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+.terraform.lock.hcl
+
+# Virtual env
+.venv/
+
+# Ruff cache
+.ruff_cache/
+
+# Local
+/local/
+*.zip
+tf.plan
+tfplan.txt
+
+# env files
+.env
+
+lambda/*/packages/
