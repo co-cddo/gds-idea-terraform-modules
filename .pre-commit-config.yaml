@@ -27,4 +27,4 @@ repos:
   rev: 3.3.1
   hooks:
     - id: checkov
-      args: [--quiet, --compact, --skip-check, CKV_AWS_21, --skip-check, CKV_AWS_144]
+      args: [--quiet, --compact]

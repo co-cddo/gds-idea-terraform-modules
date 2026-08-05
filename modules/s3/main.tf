@@ -3,6 +3,9 @@ data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "this" {
+  #checkov:skip=CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+  #checkov:skip=CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+
   bucket = var.name
 
   tags = {
