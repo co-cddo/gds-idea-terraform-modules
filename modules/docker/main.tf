@@ -1,16 +1,13 @@
-ephemeral "aws_ecr_authorization_token" "this" {}
-
-provider "docker" {
-  registry_auth {
-    address  = ephemeral.aws_ecr_authorization_token.this.proxy_endpoint
-    username = ephemeral.aws_ecr_authorization_token.this.user_name
-    password = ephemeral.aws_ecr_authorization_token.this.password
-  }
-  #host = "unix:///Users/${user_name}/.colima/docker.sock"
-}
+data "aws_ecr_authorization_token" "this" {}
 
 resource "docker_registry_image" "this" {
   name = "${var.repository_url}:${var.tag_name}"
+
+  auth_config {
+    address  = data.aws_ecr_authorization_token.this.proxy_endpoint
+    username = data.aws_ecr_authorization_token.this.user_name
+    password = data.aws_ecr_authorization_token.this.password
+  }
 
   build {
     context    = var.build_context
