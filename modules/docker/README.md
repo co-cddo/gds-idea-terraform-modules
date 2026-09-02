@@ -10,8 +10,8 @@
 
 | Name | Version |
 | ---- | ------- |
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.60.0 |
-| <a name="provider_docker"></a> [docker](#provider\_docker) | 4.5.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.62.0 |
+| <a name="provider_docker"></a> [docker](#provider\_docker) | 4.6.0 |
 
 ## Modules
 
