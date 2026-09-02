@@ -8,7 +8,7 @@ resource "github_team" "subteams" {
 }
 
 resource "github_team_members" "subteams" {
-  for_each = var.subteams
+  for_each = { for key, value in var.subteams : key => value if length(value.members) != 0 }
 
   team_slug = github_team.subteams[each.key].slug
 
